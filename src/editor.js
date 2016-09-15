@@ -1,11 +1,14 @@
 class Editor {
-	constructor() {}
+	constructor(element, config) {}
 
-	create(element, options = {}) {
-		let area = document.createElement('textarea');
+	create(element, config) {
+		let root = document.createElement('div');
 		let content = document.createTextNode(element.outerText);
-		area.appendChild(content);
 
-		element.replaceChild(area, element.childNodes[1]);
+		root.setAttribute('contentEditable', true);
+		root.className = 'root';
+		root.appendChild(content);
+
+		element.replaceChild(root, element.childNodes[1]);
 	}
 }
