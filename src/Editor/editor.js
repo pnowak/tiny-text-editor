@@ -1,5 +1,8 @@
 class Editor {
-	constructor(element, config) {}
+	constructor(element, config = {}) {
+		this.element = element;
+		this.config = config;
+	}
 
 	create(element, config) {
 		let root = document.createElement('div');
