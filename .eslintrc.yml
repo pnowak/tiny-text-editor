@@ -1,0 +1,18 @@
+env:
+  browser: true
+  commonjs: true
+  es6: true
+extends: 'eslint:recommended'
+parserOptions:
+  ecmaFeatures:
+    jsx: false
+  sourceType: module
+rules:
+  indent:
+    - tab
+  linebreak-style:
+    - Windows
+  quotes:
+    - single
+  semi:
+    - always

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="src/css/style.css">
+        <link href="http://fonts.googleapis.com/css?family=Muli" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="editor">
+            <p>This is an tiny "rich" text editor.</p>
+        </div>
+
+        <script src="src/Editor/editor.js" /></script>
+        <script>
+            var editor = new Editor(); 
+            editor.create( document.getElementById( 'editor' ), {
+                toolbar: [ 'bold', 'italic', 'undo', 'redo' ]
+            } );
+        </script>
+    </body>
+</html>

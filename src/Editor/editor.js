@@ -5,8 +5,8 @@ class Editor {
 	}
 
 	create(element, config) {
-		let root = document.createElement('div');
-		let content = document.createTextNode(element.outerText);
+		const root = document.createElement('div');
+		const content = document.createTextNode(element.innerText);
 
 		root.setAttribute('contentEditable', true);
 		root.className = 'root';
