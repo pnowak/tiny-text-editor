@@ -5,8 +5,11 @@
   "main": "bundle.js",
   "jsnext:main": "src/editor.js",
   "scripts": {
-    "lint": "eslint **/*.js",
-    "rollup": "rollup -c"
+    "karma": "karma",
+    "lint": "eslint **/**.js",
+    "build": "npm run lint && rollup -c",
+    "pretest": "npm run build",
+    "test": "karma start"
   },
   "repository": {
     "type": "git",
@@ -23,9 +26,20 @@
   },
   "homepage": "https://github.com/pnowak/tiny-text-editor#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
     "eslint": "^3.8.1",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-mocha": "^1.2.0",
+    "karma-sinon-chai": "^1.2.4",
+    "lolex": "^1.5.1",
+    "mocha": "^3.1.2",
     "rollup": "^0.36.3",
     "rollup-plugin-commonjs": "^5.0.5",
-    "rollup-plugin-node-resolve": "^2.0.0"
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "sinon": "^1.17.6",
+    "sinon-chai": "^2.8.0"
   }
 }
