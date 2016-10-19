@@ -2,12 +2,11 @@
   "name": "tiny-text",
   "version": "1.0.0",
   "description": "tiny 'rich' text editor",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
+  "main": "bundle.js",
+  "jsnext:main": "src/editor.js",
   "scripts": {
-    "lint": "eslint **/*.js"
+    "lint": "eslint **/*.js",
+    "rollup": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -18,12 +17,15 @@
     "rich-text"
   ],
   "author": "pnowak",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pnowak/tiny-text-editor/issues"
   },
   "homepage": "https://github.com/pnowak/tiny-text-editor#readme",
   "devDependencies": {
-    "eslint": "^3.8.1"
+    "eslint": "^3.8.1",
+    "rollup": "^0.36.3",
+    "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-node-resolve": "^2.0.0"
   }
 }
