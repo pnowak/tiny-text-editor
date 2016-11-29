@@ -7,8 +7,6 @@
   "scripts": {
     "karma": "karma",
     "lint": "eslint **/**.js",
-    "build": "npm run lint && rollup -c",
-    "pretest": "npm run build",
     "test": "karma start"
   },
   "repository": {
@@ -26,8 +24,19 @@
   },
   "homepage": "https://github.com/pnowak/tiny-text-editor#readme",
   "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.0",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.18.0",
     "chai": "^3.5.0",
     "eslint": "^3.8.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-loader": "^1.6.0",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-standard": "^2.0.1",
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
@@ -36,10 +45,9 @@
     "karma-sinon-chai": "^1.2.4",
     "lolex": "^1.5.1",
     "mocha": "^3.1.2",
-    "rollup": "^0.36.3",
-    "rollup-plugin-commonjs": "^5.0.5",
-    "rollup-plugin-node-resolve": "^2.0.0",
     "sinon": "^1.17.6",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "webpack": "^1.13.3",
+    "webpack-livereload-plugin": "^0.9.0"
   }
 }
