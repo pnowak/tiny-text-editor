@@ -15,7 +15,8 @@
   },
   "keywords": [
     "editor",
-    "rich-text"
+    "rich-text",
+    "WYSWIG"
   ],
   "author": "pnowak",
   "license": "MIT",

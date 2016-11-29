@@ -1,3 +1,5 @@
+'use strict';
+
 class Editor {
 	constructor(element, config = {}) {
 		this.element = element;
@@ -12,7 +14,7 @@ class Editor {
 		root.classList.add('root');
 		root.appendChild(content);
 
-		element.replaceChild(root, element.childNodes[1]);
+		return element.replaceChild(root, element.childNodes[1]);
 	}
 }
 
