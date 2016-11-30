@@ -1,0 +1,11 @@
+body {
+	font-size: 18px;
+	font-family: 'Maitree', serif;
+	color: #000000;
+}
+
+.root {
+	width: 50%;
+	padding: 22px 11px;
+	border: 2px solid #1a3e66;
+}
