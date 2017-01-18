@@ -50,15 +50,13 @@
 
 	var _editor2 = _interopRequireDefault(_editor);
 
-	var _helpers = __webpack_require__(3);
+	var _helpers = __webpack_require__(4);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var editor = new _editor2.default();
 
-	editor.create((0, _helpers.get)('editor'), {
-	    toolbar: ['bold', 'italic', 'undo', 'redo']
-	});
+	editor.create((0, _helpers.get)('editor'), 'bold');
 
 /***/ },
 /* 1 */
@@ -76,22 +74,31 @@
 
 	var _typing2 = _interopRequireDefault(_typing);
 
-	var _helpers = __webpack_require__(3);
+	var _button = __webpack_require__(3);
+
+	var _button2 = _interopRequireDefault(_button);
+
+	var _helpers = __webpack_require__(4);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var typing = new _typing2.default();
+	var bold = new _button2.default('bold');
+
+	bold.create();
+
+	var italic = new _button2.default('italic');
+
+	italic.create();
 
 	var Editor = function () {
-		function Editor(element) {
-			var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
+		function Editor(element, config) {
 			_classCallCheck(this, Editor);
 
 			this.element = element;
-			this.config = config;
+			this.config = config;console.log(this.config);
 		}
 
 		_createClass(Editor, [{
@@ -106,7 +113,7 @@
 
 				root.setAttribute('contentEditable', true);
 				root.classList.add('root');
-				root.appendChild(content);console.log(this);
+				root.appendChild(content);
 
 				return element.replaceChild(root, element.childNodes[1]);
 			}
@@ -179,6 +186,52 @@
 
 /***/ },
 /* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _helpers = __webpack_require__(4);
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Button = function () {
+		function Button(type) {
+			_classCallCheck(this, Button);
+
+			this.type = type;
+		}
+
+		_createClass(Button, [{
+			key: 'create',
+			value: function create() {
+				var button = document.createElement('button');
+				var content = document.createTextNode(this.type);
+				var div = (0, _helpers.get)('buttons');
+
+				button.addEventListener('click', function (e) {
+					return console.log(e.target);
+				}, false);
+
+				button.classList.add(this.type);
+				button.appendChild(content);
+
+				return div.appendChild(button);
+			}
+		}]);
+
+		return Button;
+	}();
+
+	exports.default = Button;
+
+/***/ },
+/* 4 */
 /***/ function(module, exports) {
 
 	'use strict';

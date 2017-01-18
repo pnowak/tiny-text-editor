@@ -1,12 +1,18 @@
 'use strict';
 
 import Typing from './typing';
+import Button from './button';
 import { get } from './helpers';
 
 const typing = new Typing();
+const bold = new Button('bold');
+const italic = new Button('italic');
+
+bold.create();
+italic.create();
 
 class Editor {
-	constructor(element, config = {}) {
+	constructor(element, config) {
 		this.element = element;
 		this.config = config;
 	}

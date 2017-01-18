@@ -5,6 +5,4 @@ import { get } from './src/helpers';
 
 const editor = new Editor(); 
 
-editor.create( get( 'editor' ), {
-    toolbar: [ 'bold', 'italic', 'undo', 'redo' ]
-} );
+editor.create( get( 'editor' ), 'bold');
