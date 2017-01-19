@@ -54,8 +54,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var editor = new _editor2.default((0, _helpers.get)('editor'), 'bold', 'italic');
-
+	var editor = new _editor2.default((0, _helpers.get)('editor'), 'bold', 'italic', 'undo', 'redo');
 	editor.create();
 
 /***/ },
@@ -215,7 +214,7 @@
 			key: 'create',
 			value: function create() {
 				var button = document.createElement('button');
-				var content = document.createTextNode(this.type[0]);
+				var firstLetter = document.createTextNode(this.type[0]);
 				var div = (0, _helpers.get)('buttons');
 
 				button.addEventListener('click', function (e) {
@@ -223,7 +222,7 @@
 				}, false);
 
 				button.classList.add(this.type);
-				button.appendChild(content);
+				button.appendChild(firstLetter);
 
 				return div.appendChild(button);
 			}
