@@ -54,9 +54,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var editor = new _editor2.default();
+	var editor = new _editor2.default((0, _helpers.get)('editor'), 'bold', 'italic');
 
-	editor.create((0, _helpers.get)('editor'), 'bold');
+	editor.create();
 
 /***/ },
 /* 1 */
@@ -85,27 +85,31 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var typing = new _typing2.default();
-	var bold = new _button2.default('bold');
-
-	bold.create();
-
-	var italic = new _button2.default('italic');
-
-	italic.create();
 
 	var Editor = function () {
-		function Editor(element, config) {
+		function Editor(element) {
 			_classCallCheck(this, Editor);
 
 			this.element = element;
-			this.config = config;console.log(this.config);
+
+			for (var _len = arguments.length, config = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+				config[_key - 1] = arguments[_key];
+			}
+
+			this.config = config;
 		}
 
 		_createClass(Editor, [{
 			key: 'create',
-			value: function create(element, config) {
+			value: function create() {
 				var root = document.createElement('div');
-				var content = document.createTextNode(element.innerText);
+				var content = document.createTextNode(this.element.innerText);
+
+				this.config.forEach(function (item, index) {
+					var button = new _button2.default(item);
+
+					button.create();
+				});
 
 				(0, _helpers.get)('editor').addEventListener('keydown', function (e) {
 					return typing.handleKeypress(e);
@@ -115,7 +119,7 @@
 				root.classList.add('root');
 				root.appendChild(content);
 
-				return element.replaceChild(root, element.childNodes[1]);
+				return this.element.replaceChild(root, this.element.childNodes[1]);
 			}
 		}]);
 
@@ -211,7 +215,7 @@
 			key: 'create',
 			value: function create() {
 				var button = document.createElement('button');
-				var content = document.createTextNode(this.type);
+				var content = document.createTextNode(this.type[0]);
 				var div = (0, _helpers.get)('buttons');
 
 				button.addEventListener('click', function (e) {

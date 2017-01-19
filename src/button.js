@@ -9,7 +9,7 @@ class Button {
 
 	create() {
 		const button = document.createElement( 'button' );
-		const content = document.createTextNode(this.type);
+		const content = document.createTextNode(this.type[0]);
 		const div = get( 'buttons' );
 
 		button.addEventListener('click', (e) => console.log(e.target), false);

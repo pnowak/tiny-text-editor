@@ -5,21 +5,22 @@ import Button from './button';
 import { get } from './helpers';
 
 const typing = new Typing();
-const bold = new Button('bold');
-const italic = new Button('italic');
-
-bold.create();
-italic.create();
 
 class Editor {
-	constructor(element, config) {
+	constructor(element, ...config) {
 		this.element = element;
 		this.config = config;
 	}
 
-	create(element, config) {
+	create() {
 		const root = document.createElement('div');
-		const content = document.createTextNode(element.innerText);
+		const content = document.createTextNode(this.element.innerText);
+
+		this.config.forEach( function (item, index) {
+			let button = new Button(item);
+
+			button.create();
+		});
 
 		get( 'editor' ).addEventListener('keydown', (e) => typing.handleKeypress(e), false);
 
@@ -27,7 +28,7 @@ class Editor {
 		root.classList.add('root');
 		root.appendChild(content);
 
-		return element.replaceChild(root, element.childNodes[1]);
+		return this.element.replaceChild(root, this.element.childNodes[1]);
 	}
 }
 
