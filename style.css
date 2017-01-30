@@ -19,7 +19,10 @@ button {
 button:active,
 button:hover {
     background-color: #ef4338;
-    color: #ffffff;
+}
+
+.active {
+    background-color: #ef4338;
 }
 
 .root {

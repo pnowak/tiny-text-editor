@@ -213,18 +213,26 @@
 		_createClass(Button, [{
 			key: 'create',
 			value: function create() {
+				var _this = this;
+
 				var button = document.createElement('button');
 				var firstLetter = document.createTextNode(this.type[0]);
 				var div = (0, _helpers.get)('buttons');
 
 				button.addEventListener('click', function (e) {
-					return console.log(e.target);
+					return _this.handler(e.target);
 				}, false);
 
 				button.classList.add(this.type);
 				button.appendChild(firstLetter);
 
 				return div.appendChild(button);
+			}
+		}, {
+			key: 'handler',
+			value: function handler(target) {
+				console.log(target, this);
+				target.classList.toggle('active');
 			}
 		}]);
 

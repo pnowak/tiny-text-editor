@@ -12,12 +12,16 @@ class Button {
 		const firstLetter = document.createTextNode(this.type[0]);
 		const div = get( 'buttons' );
 
-		button.addEventListener('click', (e) => console.log(e.target), false);
+		button.addEventListener('click', (e) => this.handler(e.target), false);
 
 		button.classList.add(this.type);
 		button.appendChild(firstLetter);
 
 		return div.appendChild(button);
+	}
+
+	handler(target) {
+        target.classList.toggle('active');
 	}
 }
 
